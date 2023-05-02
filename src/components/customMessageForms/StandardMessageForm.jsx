@@ -4,14 +4,11 @@ import { useState } from 'react'
 import Dropzone from 'react-dropzone';
 
 function StandardMessageForm({ props, activeChat }) {
-    console.log("props: ", props);
-    console.log("active chat: ", activeChat)
     const [message, setMessage] = useState("");
     const [attachment, setAttachment] = useState("");
     const [preview, setPreview] = useState("")
     const handleChange = (e) => setMessage(e.target.value)
     const handleSubmit = async () => {
-        console.log("handleSubmit props: ", props)
         const date = new Date().toISOString().replace("T", ' ').replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`)
         const at = attachment ? [{ blob: attachment, file: attachment.name }] : [];
         const form = {
