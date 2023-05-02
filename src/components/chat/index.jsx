@@ -2,6 +2,8 @@ import React from 'react'
 import { useMultiChatLogic, MultiChatSocket, MultiChatWindow } from 'react-chat-engine-advanced'
 import CustomHeader from "@/components/CustomHeader"
 import StandardMessageForm from "@/components/CustomMessageForms/StandardMessageForm"
+import Ai from "@/components/CustomMessageForms/Ai"
+
 function Chat() {
     const chatProps = useMultiChatLogic(
         import.meta.env.VITE_PROJECT_ID,
@@ -17,6 +19,11 @@ function Chat() {
                 style={{ height: "100vh" }}
                 renderChatHeader={(chat) => <CustomHeader chat={chat}></CustomHeader>}
                 renderMessageForm={(props) => {
+
+                    if (chatProps.chat?.title.startsWith("AiChat_")) {
+                        return <Ai props={props} activeChat={chatProps.chat} />
+                    }
+
                     return (
                         <StandardMessageForm props={props} activeChat={chatProps.chat} />
                     )
