@@ -8,6 +8,8 @@ function Login({ setUser, setSecret }) {
     const [triggerLogin, resultLogin] = usePostLoginMutation();
     const [triggerSignUp] = usePostSignUpMutation();
 
+    console.log("in login component")
+
     const handleLogin = () => {
         triggerLogin({ username, password })
     }
@@ -18,8 +20,9 @@ function Login({ setUser, setSecret }) {
 
     useEffect(() => {
         if (resultLogin.data?.response) {
-            setUserName(username);
-            setPassword(password);
+            setUser(username);
+            setSecret(password);
+            console.log('login return, set user and secret')
         }
     }, [resultLogin.data])
 
@@ -28,7 +31,7 @@ function Login({ setUser, setSecret }) {
             <div className="login-container">
                 <h2 className="title">强洲GPT深度智能在线学习平台</h2>
                 <p className='register-change' onClick={() => setIsRegister(!isRegister)}>
-                    {isRegister ? "已经登录?" : "是否为新用户?"}
+                    {isRegister ? "已经注册?" : "是否为新用户?"}
                 </p>
 
                 <div>
@@ -39,7 +42,7 @@ function Login({ setUser, setSecret }) {
                     ></input>
 
                     <input className='login-input' type="text"
-                        placeholder='密码' value={username}
+                        placeholder='密码' value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     ></input>
                 </div>
