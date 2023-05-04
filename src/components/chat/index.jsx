@@ -4,11 +4,11 @@ import CustomHeader from "@/components/CustomHeader"
 import StandardMessageForm from "@/components/CustomMessageForms/StandardMessageForm"
 import Ai from "@/components/CustomMessageForms/Ai"
 
-function Chat() {
+function Chat({ user, secret }) {
     const chatProps = useMultiChatLogic(
         import.meta.env.VITE_PROJECT_ID,
-        "chenyi",
-        "1234",
+        user,
+        secret,
     )
 
     return (
