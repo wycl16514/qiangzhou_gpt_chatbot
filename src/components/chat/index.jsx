@@ -4,6 +4,7 @@ import CustomHeader from "@/components/CustomHeader"
 import StandardMessageForm from "@/components/CustomMessageForms/StandardMessageForm"
 import Ai from "@/components/CustomMessageForms/Ai"
 
+
 function Chat({ user, secret }) {
     const chatProps = useMultiChatLogic(
         import.meta.env.VITE_PROJECT_ID,
@@ -19,13 +20,12 @@ function Chat({ user, secret }) {
                 style={{ height: "100vh" }}
                 renderChatHeader={(chat) => <CustomHeader chat={chat}></CustomHeader>}
                 renderMessageForm={(props) => {
+                    return <Ai props={props} activeChat={chatProps.chat} />
+                }}
 
-                    if (chatProps.chat?.title.startsWith("AiChat_")) {
-                        return <Ai props={props} activeChat={chatProps.chat} />
-                    }
-
+                renderOptionsSettings={(creds, chat) => {
                     return (
-                        <StandardMessageForm props={props} activeChat={chatProps.chat} />
+                        <div>render options</div>
                     )
                 }}
             />

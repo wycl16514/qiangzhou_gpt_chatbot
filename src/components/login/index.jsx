@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react"
 import { usePostLoginMutation, usePostSignUpMutation } from "@/state/api"
+
+
 function Login({ setUser, setSecret }) {
     const [isRegister, setIsRegister] = useState(false);
     const [username, setUserName] = useState("");
@@ -49,12 +51,19 @@ function Login({ setUser, setSecret }) {
 
                 <div className='login-action'>
                     {isRegister ? (<button type="button" onClick={handleRegister}>注册</button>) :
-                        (<button type="button" onClick={handleLogin}>登录</button>)}
+                        (
+                            <button
+                                class="bg-transparent hover:bg-blue-400 text-blue-400 font-semibold hover:text-white py-2 px-4 border border-blue-400 hover:border-transparent rounded"
+                                onClick={handleLogin}
+                            >
+                                登录
+                            </button>
+                        )}
                 </div>
 
             </div>
 
-        </div>
+        </div >
     )
 }
 

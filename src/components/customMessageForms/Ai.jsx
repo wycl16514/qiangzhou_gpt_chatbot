@@ -21,7 +21,11 @@ function Ai({ props, activeChat }) {
         }
 
         props.onSubmit(form);
-        trigger(form);
+        if (message.charAt(0) === '@') {
+            console.log('send message to gpt');
+            trigger(form);
+        }
+
         setMessage("")
         setAttachment("")
     }
