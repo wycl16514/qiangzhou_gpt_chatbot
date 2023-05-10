@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 $gray-300: #a3a3a3;
 $gray-400: #858585;
