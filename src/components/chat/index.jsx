@@ -1,9 +1,8 @@
 import React from 'react'
 import { useMultiChatLogic, MultiChatSocket, MultiChatWindow } from 'react-chat-engine-advanced'
 import CustomHeader from "@/components/CustomHeader"
-import StandardMessageForm from "@/components/CustomMessageForms/StandardMessageForm"
 import Ai from "@/components/CustomMessageForms/Ai"
-
+import Exam from '@/components/exam/exam'
 
 function Chat({ user, secret }) {
     const chatProps = useMultiChatLogic(
@@ -25,7 +24,7 @@ function Chat({ user, secret }) {
 
                 renderOptionsSettings={(creds, chat) => {
                     return (
-                        <div>render options</div>
+                        <Exam />
                     )
                 }}
             />
