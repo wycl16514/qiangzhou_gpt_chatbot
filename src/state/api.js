@@ -27,7 +27,15 @@ export const api = createApi({
                 method: "POST",
                 body: payload,
             }),
-        })
+        }),
+
+        getExam: build.mutation({
+            query: (payload) => ({
+                url: "exam/get_exam",
+                method: "POST",
+                body: payload,
+            }),
+        }),
     })
 });
 
@@ -35,4 +43,5 @@ export const {
     usePostAiTextMutation,
     usePostLoginMutation,
     usePostSignUpMutation,
+    useGetExamMutation,
 } = api;
