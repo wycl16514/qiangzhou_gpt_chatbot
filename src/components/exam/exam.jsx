@@ -25,9 +25,13 @@ function Exam() {
     }, [])
 
     useEffect(() => {
+
         if (examRW && questionCount <= RIGHT_WRONG_QUESTION_COUNT) {
+
             const answer = examRW[examQuestionArray[questionCount]];
             setCorrectAnswer(answer);
+            console.log('set answer for question: ', examQuestionArray[questionCount])
+            console.log('set answer: ', answer)
         } else if (examSingle) {
             const qes = examQuestionArray[questionCount];
             setCorrectAnswer(examSingle[qes][0]);
@@ -81,7 +85,7 @@ function Exam() {
         }
         radioClicked.checked = false
         setQuestionCount(questionCount - 1)
-        setQuestionTitle(examQuestionArray[questionCount])
+        setQuestionTitle(examQuestionArray[questionCount - 1])
         setAnswerByQuestionIndex()
         setAnswerResult('')
     };
@@ -92,7 +96,7 @@ function Exam() {
         }
         radioClicked.checked = false
         setQuestionCount(questionCount + 1)
-        setQuestionTitle(examQuestionArray[questionCount])
+        setQuestionTitle(examQuestionArray[questionCount + 1])
         setAnswerByQuestionIndex()
         setAnswerResult('')
     };
