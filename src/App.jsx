@@ -2,6 +2,8 @@ import { useState } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Chat from "@/components/chat"
 import Login from "@/components/login"
+import StudentRegistration from "./components/studentRegistration/studentRegistration"
+
 function App() {
   const [user, setUser] = useState(null);
   const [secret, setSecret] = useState(null);
@@ -26,6 +28,8 @@ function App() {
             : <Navigate to="/" />}>
 
           </Route>
+
+          <Route path="reg" element={<StudentRegistration />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
